@@ -22,17 +22,17 @@ function divide(number1,number2){
 }   
 
 
-calculatorScreen = document.querySelector('input');
+calculatorScreen = document.querySelector('.calculator-screen');
 
 function operate(operator,numberArray){ 
     if (operator === 947 || numberArray === 947){
-        calculatorScreen.value="Error!"
+        calculatorScreen.textContent="Error!"
         console.log('somethingswrong')
         return 0
     }
 
     result = operator(parseFloat(numberArray[0]),parseFloat(numberArray[1]))
-    calculatorScreen.value = result
+    calculatorScreen.textContent = result
     return result
 }
 function writeTheNumber(e){
@@ -41,7 +41,7 @@ function writeTheNumber(e){
 
 numberButtons = document.querySelectorAll(".number");
 Array.from(numberButtons).map(button => button.addEventListener('click',(e)=>{
-    calculatorScreen.value+=e.target.textContent
+    calculatorScreen.textContent+=e.target.textContent
     
 }))
 
@@ -110,7 +110,7 @@ function operatorDetect(inputValue){
     }
     else{
         console.log('No operators found')
-        console.log(calculatorScreen.value)
+        console.log(calculatorScreen.textContent)
     }
 }
 let tempOperator = null;
@@ -119,48 +119,48 @@ let temporaryNumber = null;
 let temporaryNumber2 = null;
 function opButtonBehavior(stringElement){
     
-    console.log(calculatorScreen.value)
+    console.log(calculatorScreen.textContent)
     
 
     console.log(temporaryNumber2);
-    console.log(calculatorScreen.value)
+    console.log(calculatorScreen.textContent)
     
     let tempResult= null;
 
-    if (!operatorExistsCheck(calculatorScreen.value)){
-        console.log(calculatorScreen.value)
-        temporaryNumber = calculatorScreen.value;
+    if (!operatorExistsCheck(calculatorScreen.textContent)){
+        console.log(calculatorScreen.textContent)
+        temporaryNumber = calculatorScreen.textContent;
         console.log(temporaryNumber);
         
 
     }
     else {
-        temporaryNumber2 = calculatorScreen.value.replace(temporaryNumber,"").replace(operatorBefore,"")
+        temporaryNumber2 = calculatorScreen.textContent.replace(temporaryNumber,"").replace(operatorBefore,"")
         console.log(temporaryNumber + "tn")
         console.log(temporaryNumber2 + "tn2");
         tempResult = operate(operatorDetect(operatorBefore),[parseFloat(temporaryNumber),parseFloat(temporaryNumber2)] );
         console.log(tempResult);
         (e)=>{
-            calculatorScreen.value+=e.target.textContent
+            calculatorScreen.textContent+=e.target.textContent
             tempOperator = e.target.textContent;
         }
         temporaryNumber = tempResult;
     }  }
 
 equalsButton = document.querySelector('.equals');
-equalsButton.addEventListener('click',()=> operate(operatorDetect(calculatorScreen.value),numberDetect(calculatorScreen.value)))
+equalsButton.addEventListener('click',()=> operate(operatorDetect(calculatorScreen.textContent),numberDetect(calculatorScreen.textContent)))
 
 function clearScreen(){
-    calculatorScreen.value="";
+    calculatorScreen.textContent="";
 }
 
 clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', ()=> clearScreen());
 
 function backspaceHit(){
-    calculatorScreenArray = calculatorScreen.value.split("")
+    calculatorScreenArray = calculatorScreen.textContent.split("")
     calculatorScreenArray.pop()
-    calculatorScreen.value = calculatorScreenArray.join("")
+    calculatorScreen.textContent = calculatorScreenArray.join("")
 }
 
 backspaceButton = document.querySelector('.backspace');
@@ -171,10 +171,10 @@ Array.from(operatorButtons).map(button => button.addEventListener('click',(e)=>{
     tempOperator = e.target.textContent;
 }))
 
-Array.from(operatorButtons).map(item=>item.addEventListener('click',()=>opButtonBehavior(calculatorScreen.value)))
+Array.from(operatorButtons).map(item=>item.addEventListener('click',()=>opButtonBehavior(calculatorScreen.textContent)))
 
 Array.from(operatorButtons).map(button => button.addEventListener('click',(e)=>{
-    calculatorScreen.value+=e.target.textContent
+    calculatorScreen.textContent+=e.target.textContent
     
 }))
 
@@ -194,16 +194,30 @@ function operatorExistsCheck(stringElement){ //gives true if any operator alread
 
 }
 calculatorScreen.addEventListener("keydown",(e)=>{
+    console.log(e.key)
     if (e.key==="+" || e.key === "*" || e.key === "-" || e.key === "/"){
         operatorBefore=tempOperator;
         tempOperator = e.key;
-        opButtonBehavior(calculatorScreen.value) 
+        opButtonBehavior(calculatorScreen.textContent)
+        calculatorScreen.textContent+=e.key 
     }
     else if (e.key==="Enter"){
-        operate(operatorDetect(calculatorScreen.value),numberDetect(calculatorScreen.value))
+        operate(operatorDetect(calculatorScreen.textContent),numberDetect(calculatorScreen.textContent))
+    }
+    else if (parseInt(e.key)){
+        calculatorScreen.textContent+=e.key
+    }
+    else if (e.key==="0"){
+        calculatorScreen.textContent+=e.key
+    }
+    else if (e.key==="Backspace"){
+        backspaceHit()
     }
 
+    
+
 })
+
 
 
 

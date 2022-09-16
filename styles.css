@@ -62,19 +62,37 @@ button:hover{
     
 
 }
-
+/*
+.sub-calculator-screen{
+    font-size:10px;
+    flex:1 0 auto;
+    align-self: flex-end;
+    margin-right: 5px;
+    margin-top:1px;
+}
+.main-calculator-screen{
+    font-size:18px;
+    flex:1 0 auto;
+    align-self: flex-end;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+*/
 .calculator-screen{
     height:40px;
     margin-bottom: 15px;
     margin-top: 10px;
+    padding-right: 5px;
     width:200px;
     zoom: 2.5;
     font-size: larger;
     border:6px indigo solid;
     border-radius: 8px;
     padding-left: 5px;
-    
-
+    display:flex;
+    justify-content: end;
+    align-items: center;
+    outline:none;
 }
 
 .calculate{
