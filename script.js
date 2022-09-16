@@ -213,10 +213,23 @@ calculatorScreen.addEventListener("keydown",(e)=>{
     else if (e.key==="Backspace"){
         backspaceHit()
     }
+    else if(e.key==="c" || e.key==="C"){
+        clearScreen()
+    }
 
     
 
 })
+
+body = document.querySelector("body")
+body.addEventListener("keydown",(e)=>{
+    calculatorScreen.focus()
+})
+
+Array.from(document.querySelectorAll("button")).forEach(button=>button.addEventListener("click",(e)=>{
+    calculatorScreen.focus()
+}))
+ 
 
 
 

@@ -1,4 +1,8 @@
+html{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 body{
+    
     display:flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +11,8 @@ body{
     width:100%;
     margin-top:7vw;
     background-color: indigo;
+    flex-direction: column;
+    gap:60px;
 }
 .main-container{
     display:flex;
@@ -51,6 +57,7 @@ button{
     border-radius: 6px;
     border:white 2px solid;
     font-weight: bold;
+    
     
 }
 
@@ -125,4 +132,16 @@ button:hover{
 
 .clear {
     background-color:rebeccapurple;
+}
+
+.instructions-container{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.instruction{
+    color:white;
+    font-size: 20px;
+    font-weight: 600;
 }
