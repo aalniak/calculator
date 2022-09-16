@@ -50,6 +50,7 @@ button{
     color:white;
     border-radius: 6px;
     border:white 2px solid;
+    font-weight: bold;
     
 }
 
@@ -58,7 +59,7 @@ button:hover{
     color:indigo;
     border:indigo 2px solid;
     font-weight: 700;
-    font-size: 14px;
+    
 
 }
 
@@ -88,6 +89,7 @@ button:hover{
 .header{
     font-size: 55px;
     font-weight: 500;
+    align-self: flex-end;
 }
 
 .backspace {
