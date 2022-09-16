@@ -54,10 +54,20 @@ button{
 .calculate{
     display:flex;
     margin-left: 20px;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
+    flex-direction: column-reverse;
+
 }
 
 .header{
     font-size: 48px;
+}
+
+.backspace {
+    flex: 0 1 auto;
+}
+
+.equals {
+    flex: 0 1 auto;
 }
