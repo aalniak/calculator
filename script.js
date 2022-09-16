@@ -51,21 +51,21 @@ function numberDetect(inputValue){
     if(valueArray.filter((value)=>{return value === '+'}).length){
         numberArray=inputValue.split("+")
         console.log(numberArray)
-        returnArray = numberArray.map(number=>parseInt(number))
+        returnArray = numberArray.map(number=>parseFloat(number))
         console.log(returnArray)
     }
     else if(valueArray.filter((value)=>{return value === '-'}).length){
         numberArray=inputValue.split("-")
-        returnArray = numberArray.map(number=>parseInt(number))
+        returnArray = numberArray.map(number=>parseFloat(number))
     }
     else if ((valueArray.filter((value)=>{return value === '/'}).length)){
         numberArray=inputValue.split("/")
-        returnArray = numberArray.map(number=>parseInt(number))
+        returnArray = numberArray.map(number=>parseFloat(number))
     }
 
     else if ((valueArray.filter((value)=>{return value === '*'}).length)){
         numberArray=inputValue.split("*")
-        returnArray = numberArray.map(number=>parseInt(number))
+        returnArray = numberArray.map(number=>parseFloat(number))
     }
     return returnArray
 
