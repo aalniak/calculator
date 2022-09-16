@@ -11,8 +11,15 @@ function multiply(number1,number2){
 }
 
 function divide(number1,number2){
-    return number1 / number2
-}
+    if (number2!==0){
+        return number1 / number2
+    }
+    else {
+        alert("We don't recommend dividing with 0 here, pal!")
+        return "It's said to be infinity."
+        }
+    
+}   
 
 
 calculatorScreen = document.querySelector('input');
@@ -56,7 +63,7 @@ function numberDetect(inputValue){
     }
     else if(valueArray.filter((value)=>{return value === '-'}).length){
         numberArray=inputValue.split("-")
-        returnArray = numberArray.map(number=>parseFloat(number))
+        
     }
     else if ((valueArray.filter((value)=>{return value === '/'}).length)){
         numberArray=inputValue.split("/")
@@ -67,6 +74,13 @@ function numberDetect(inputValue){
         numberArray=inputValue.split("*")
         returnArray = numberArray.map(number=>parseFloat(number))
     }
+    numberArray.forEach(number=>{
+        if ((number.split(".")-1)>1){
+            number.replace(number[number.lastIndexOf(".")-1],"")
+        }
+            
+        })
+    returnArray = numberArray.map(number=>parseFloat(number))
     return returnArray
 
 }
@@ -179,3 +193,17 @@ function operatorExistsCheck(stringElement){ //gives true if any operator alread
     }
 
 }
+calculatorScreen.addEventListener("keydown",(e)=>{
+    if (e.key==="+" || e.key === "*" || e.key === "-" || e.key === "/"){
+        operatorBefore=tempOperator;
+        tempOperator = e.key;
+        opButtonBehavior(calculatorScreen.value) 
+    }
+    else if (e.key==="Enter"){
+        operate(operatorDetect(calculatorScreen.value),numberDetect(calculatorScreen.value))
+    }
+
+})
+
+
+

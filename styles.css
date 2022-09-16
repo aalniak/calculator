@@ -5,7 +5,7 @@ body{
     margin-bottom: 200px;
     margin:0;
     width:100%;
-    height: 50vw;
+    margin-top:7vw;
 }
 .main-container{
     display:flex;
@@ -17,7 +17,7 @@ body{
 .numbers-and-operators-container{
     display:flex;
     zoom: 2.5;
-    gap:2px;
+    gap:1px;
     
 }
 
@@ -48,6 +48,7 @@ button{
     margin-top: 20px;
     width:200px;
     zoom: 2.5;
+    font-size: larger;
 
 }
 
@@ -61,7 +62,8 @@ button{
 }
 
 .header{
-    font-size: 48px;
+    font-size: 55px;
+    font-weight: 500;
 }
 
 .backspace {
