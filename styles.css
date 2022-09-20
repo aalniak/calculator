@@ -1,5 +1,6 @@
 html{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height:100%;
 }
 body{
     
@@ -8,8 +9,8 @@ body{
     align-items: center;
     margin-bottom: 200px;
     margin:0;
-    width:100%;
-    margin-top:7vw;
+    height:100%;
+    
     background-color: indigo;
     flex-direction: column;
     gap:60px;
@@ -22,6 +23,7 @@ body{
     padding:30px;
     background-color:white;
     border-radius: 30px;
+    
 }
 
 .numbers-and-operators-container{
@@ -138,6 +140,7 @@ button:hover{
     display:flex;
     flex-direction: column;
     gap:10px;
+    margin-bottom: 100px;
 }
 
 .instruction{
